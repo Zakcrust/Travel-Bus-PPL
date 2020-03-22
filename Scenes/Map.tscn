@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Map.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/799px-Java_blank_map.svg.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Kota.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Custom_kota.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/RouteSelection.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Scripts/RouteSelection.gd\"
+
+var selected_cities = []
+
+func cities_data(data):
+	selected_cities.append(data)
+	_check_action_state()
+
+func _check_action_state():
+	if selected_cities.size() == 1:
+		.change_state(state.TUJUAN)
+	elif selected_cities.size() == 2:
+		.change_state(state.CONFIRM)"
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Jawa" type="Sprite" parent="."]
+position = Vector2( 512, 200 )
+texture = ExtResource( 2 )
+
+[node name="Cities" type="Node2D" parent="."]
+
+[node name="Bandung" parent="Cities" instance=ExtResource( 3 )]
+position = Vector2( 321.841, 166.281 )
+script = ExtResource( 4 )
+nama_kota = "Bandung"
+
+[node name="Semarang" parent="Cities" instance=ExtResource( 3 )]
+position = Vector2( 517.105, 182.316 )
+script = ExtResource( 4 )
+nama_kota = "Semarang"
+
+[node name="Surabaya" parent="Cities" instance=ExtResource( 3 )]
+position = Vector2( 722.895, 201.263 )
+script = ExtResource( 4 )
+nama_kota = "Surabaya"
+
+[node name="Yogyakarta" parent="Cities" instance=ExtResource( 3 )]
+position = Vector2( 547.158, 238.105 )
+script = ExtResource( 4 )
+nama_kota = "Yogyakarta"
+
+[node name="Jakarta" parent="Cities" instance=ExtResource( 3 )]
+position = Vector2( 252.421, 112.842 )
+script = ExtResource( 4 )
+nama_kota = "Jakarta"
+
+[node name="Menu" parent="." instance=ExtResource( 5 )]
+script = SubResource( 1 )
+
