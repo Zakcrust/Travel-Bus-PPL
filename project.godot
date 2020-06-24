@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Kota",
+"language": "GDScript",
+"path": "res://Scripts/Kota/Kota.gd"
+} ]
 _global_script_class_icons={
-
+"Kota": ""
 }
 
 [application]
@@ -19,7 +24,17 @@ config/name="TravelBus-Jawa-Visual-Map"
 run/main_scene="res://Scenes/Map.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+DataManager="*res://Global/DataManager.tscn"
+
+[display]
+
+window/size/width=1280
+window/size/height=680
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"

@@ -19,7 +19,6 @@ func action_process():
 		_set_text("Pilih Kota tujuan")
 	elif action_state == state.CONFIRM:
 		_set_text("Tekan tombol OK")
-		$Button.show()
 
 func change_state(st):
 	action_state = st
@@ -27,7 +26,4 @@ func change_state(st):
 
 func _set_text(text):
 	$Label.text = str(text)
-	$Label.rect_position.x = 512 - ($Label.rect_size.x / 2)
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://Scenes/DetailInfo.tscn")
+	$Label.rect_position.x = (1280 - $Label.rect_size.x) / 2
