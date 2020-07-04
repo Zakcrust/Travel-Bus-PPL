@@ -8,7 +8,8 @@ var selected : bool = false
 
 var properties = {
 				"nama" : "",
-				"position" : position
+				"position" : position,
+				"value" : 0
 	}
 
 func _init_property(prop):
@@ -44,8 +45,16 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			print("clicked")
 			emit_signal("send_data",properties)
 			selected = true
+			$Image.hide()
 		
-
+func get_name_by_value(value : int) -> String:
+	if properties["value"] == value:
+		return properties["nama"]
+	return ""
 
 func is_selected() -> bool:
 	return selected
+
+
+func set_selected(value : bool) -> void:
+	selected = false

@@ -10,7 +10,7 @@ var action_state = state.ASAL
 
 func _ready():
 	action_process()
-	$Button.hide()
+	$Confirm.hide()
 
 func action_process():
 	if action_state == state.ASAL:
@@ -18,7 +18,7 @@ func action_process():
 	elif action_state == state.TUJUAN:
 		_set_text("Pilih Kota tujuan")
 	elif action_state == state.CONFIRM:
-		_set_text("Tekan tombol OK")
+		_set_text("Konfirmasi")
 
 func change_state(st):
 	action_state = st

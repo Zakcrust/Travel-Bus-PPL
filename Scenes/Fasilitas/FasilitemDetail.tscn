@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Fasilitas/FasilitemDetail.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Package/AnimTexture/ButtonAnimated.tres" type="Texture" id=2]
+[ext_resource path="res://Assets/PixelArtGUI/Mission Failed/BG.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Arial_Rounded_MT.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/PixelArtGUI/Main menu/Button BG.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="FasilitasDetail" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 100, 32 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Left" type="TextureButton" parent="."]
+margin_left = 235.0
+margin_top = 300.0
+margin_right = 329.0
+margin_bottom = 380.0
+rect_scale = Vector2( -1, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TextureButton" parent="."]
+margin_left = 1045.0
+margin_top = 300.0
+margin_right = 1139.0
+margin_bottom = 380.0
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 114.0
+margin_top = 65.0
+margin_right = 1167.0
+margin_bottom = 186.0
+custom_fonts/font = SubResource( 1 )
+text = "Fasilitas"
+align = 1
+valign = 1
+
+[node name="Kembali" type="TextureButton" parent="."]
+margin_left = 541.0
+margin_top = 475.0
+margin_right = 738.0
+margin_bottom = 519.0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Kembali"]
+margin_right = 198.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 2 )
+text = "Kembali"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_Right_pressed"]
+[connection signal="pressed" from="Kembali" to="." method="_on_Kembali_pressed"]
